@@ -20,11 +20,11 @@ public class App {
 
     public static void main( String[] args ) {
         PokerService pokerService = new PokerServiceImpl();
-        String defaultTextPath = "C:\\Users\\krit\\IdeaProjects\\cigna-quiz\\target\\temp.txt";
+
         try {
             Reader reader = Reader.getInstance();
             List<String> lines = reader
-                    .read(defaultTextPath)
+                    .read(args[0])
                     .orElseThrow(() -> new RuntimeException("Cannot read file"));
             // remove blank
             lines = lines.stream().filter(line -> !line.equals("")).collect(Collectors.toList());
